@@ -76,7 +76,7 @@ impl SerenityMessage {
         if let Some(mention) = &self.mention_type {
             match mention {
                 SerenityMessageMentionType::Everyone => {
-                    message = message.allowed_mentions(Am::new().all_roles(true));
+                    message = message.allowed_mentions(Am::new().everyone(true));
                 }
                 SerenityMessageMentionType::Here => {
                     message = message.allowed_mentions(Am::new().all_users(true).all_roles(true));
