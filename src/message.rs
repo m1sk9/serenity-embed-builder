@@ -22,6 +22,39 @@ pub enum SerenityMessageConvertError {
 }
 
 impl SerenityMessage {
+    /// Convert the message structure created in Builder into a model usable in Serenity.
+    ///
+    /// ```rs
+    /// let message = SerenityMessage::builder()
+    ///   .content("This is a test message.")
+    ///   .build();
+    ///
+    /// let serenity_message = message.convert()?; // Result<CreateMessage, SerenityMessageConvertError>
+    /// ```
+    ///
+    /// # How to use
+    ///
+    /// ```rs
+    /// // 1. Create a SerenityMessage using the builder
+    /// let message = SerenityMessage::builder()
+    ///   .content("This is a test message.")
+    ///   .build(); // Don't forget!: If you forget this, you won't be able to use `convert()`.
+    ///
+    /// // 2. Convert to Serenity's CreateMessage
+    /// let serenity_message = message.convert()?; // Result<CreateMessage, SerenityMessageConvertError>
+    ///
+    /// // 3. Use the converted message in your bot
+    /// if let Err(e) = message.channel_id.send_message(&ctx.http, serenity_message).await {
+    ///     tracing::error!("Failed to send preview: {:?}", e);
+    /// }
+    /// ```
+    ///
+    /// # Errors
+    ///
+    /// This function may return the following error:
+    ///
+    /// - [SerenityMessageConvertError::TooLongContent]: The content exceeds the maximum length of 2000 characters.
+    /// - [SerenityMessageConvertError::EmbedConvertError]: Failed to perform internal conversion for embed. (error [crate::embed::SerenityEmbedConvertError] reported by thiserror)
     pub fn convert(&self) -> Result<CreateMessage, SerenityMessageConvertError> {
         let mut message = serenity::builder::CreateMessage::default();
 
