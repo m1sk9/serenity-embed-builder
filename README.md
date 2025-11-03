@@ -10,7 +10,7 @@ A utility library to make Serenity's builder easier to use.
 
 ```toml
 [dependencies]
-serenity-builder = "0.2"
+serenity-builder = "0.3"
 ```
 
 # Overview
@@ -56,7 +56,7 @@ cargo add serenity-builder --no-default-features --features embed
 | # | Step | Status |
 |---:|------|:------:|
 | 1 | Embed Builder | ⚠️ |
-| 2 | Message Builder | ❌ |
+| 2 | Message Builder | ⚠️ |
 | 3 | Model Builder | ❌ |
 | 4 | Button Builder | ❌ |
 | 5 | Invite Builder | ❌ |
