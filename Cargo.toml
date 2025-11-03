@@ -7,8 +7,9 @@ readme = "README.md"
 repository = "https://github.com/m1sk9/serenity-builder"
 
 [features]
-default = ["embed"]
+default = ["embed", "message"]
 embed = []
+message = []
 
 [dependencies]
 serde = { version = "1.0.228", features = ["derive"] }
