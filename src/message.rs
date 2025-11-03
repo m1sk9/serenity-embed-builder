@@ -59,7 +59,8 @@ impl SerenityMessage {
         let mut message = serenity::builder::CreateMessage::default();
 
         if let Some(content) = &self.content {
-            if content.chars().count() > 2000 {
+            // Internal string data in the Discord API is handled in UTF-16 code units.
+            if content.encode_utf16().count() > 2000 {
                 return Err(SerenityMessageConvertError::TooLongContent);
             }
             message = message.content(content);
