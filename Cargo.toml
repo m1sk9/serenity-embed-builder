@@ -1,10 +1,14 @@
 [package]
 name = "serenity-builder"
+description = "A utility library to make Serenity's builder easier to use."
 version = "0.2.0"
 edition = "2024"
 license = "Apache-2.0"
 readme = "README.md"
 repository = "https://github.com/m1sk9/serenity-builder"
+documentation = "https://docs.rs/serenity-builder"
+homepage = "https://m1sk9.dev"
+keywords = ["discord", "api", "serenity", "builder", "utility"]
 
 [features]
 default = ["embed", "message"]
