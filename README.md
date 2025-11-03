@@ -21,7 +21,7 @@ Use Serenity's builder with `typed_builder` for intuitive handling.
 // serenity
 let embed = CreateEmbed::default()
    .title("This is a test title.")
-   .description("aaaaaaaaa!")
+   .description("This is test description!")
    .author(
        serenity::builder::CreateEmbedAuthor::new(MOCK_TEXT)
            .url(MOCK_URL)
@@ -31,7 +31,7 @@ let embed = CreateEmbed::default()
 // serenity-builder
 let embed = SerenityEmbed::builder()
    .title("This is a test title.")
-   .description("aaaaaaaaa!")
+   .description("This is test description!")
    .author_name("m1sk9")
    .author_url("https://m1sk9.dev/avatar.png")
    .build();
@@ -42,6 +42,7 @@ let embed = SerenityEmbed::builder()
 | Feature | Description | Default Feature? |
 | ------- | ----------- | ----------------- |
 | `embed` | Enable embed builder | Yes |
+| `message` | Enable message builder | Yes |
 
 Basic builders (`embed`, `message`) are default features. You can use them immediately by adding the crate with `cargo add` or adding it to your `Cargo.toml`.
 
@@ -55,7 +56,7 @@ cargo add serenity-builder --no-default-features --features embed
 
 | # | Step | Status |
 |---:|------|:------:|
-| 1 | Embed Builder | ⚠️ |
+| 1 | Embed Builder | ✅ |
 | 2 | Message Builder | ⚠️ |
 | 3 | Model Builder | ❌ |
 | 4 | Button Builder | ❌ |

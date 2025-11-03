@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.3.0](https://github.com/m1sk9/serenity-builder/compare/serenity-builder-v0.2.0...serenity-builder-v0.3.0) (2025-11-03)
+
+
+### Features
+
+* Add message builder ([#10](https://github.com/m1sk9/serenity-builder/issues/10)) ([8cdd70f](https://github.com/m1sk9/serenity-builder/commit/8cdd70fcf207d07279ef08d1fada6c85319a6b65))
+
 ## [0.2.0](https://github.com/m1sk9/serenity-builder/compare/serenity-builder-v0.1.0...serenity-builder-v0.2.0) (2025-10-21)
 
 
