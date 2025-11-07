@@ -7,7 +7,7 @@
 ///
 /// In Serenity, embeddings are composed of multiple structures such as [serenity::builder::CreateEmbedAuthor].
 ///
-/// serenity-embed-builder represents these structures as Triples or Doubles. Please refer to the documentation to determine which values correspond to them.
+/// serenity-builder represents these structures as Triples or Doubles. Please refer to the documentation to determine which values correspond to them.
 ///
 /// [What is Triples or Doubles?](https://doc.rust-lang.org/book/ch03-02-data-types.html)
 ///
