@@ -1,5 +1,5 @@
 use crate::model::embed::SerenityEmbed;
-use serenity::all::{MessageReference, RoleId, StickerId, UserId};
+use serenity::all::{Message, RoleId, StickerId, UserId};
 
 /// An enumeration representing the different types of mentions that can be included in a Discord message.
 /// These mention types allow you to specify who or what should be mentioned in the message.
@@ -14,7 +14,7 @@ pub enum SerenityMessageMentionType {
     /// Mentions specific roles by their role IDs.
     Roles(Vec<RoleId>),
     /// Mentions a specific message.
-    Reply(MessageReference),
+    Reply(Box<Message>), // Boxed to reduce size.
 }
 
 /// A builder for creating Discord messages using Serenity.
