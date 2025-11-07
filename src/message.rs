@@ -88,8 +88,8 @@ impl SerenityMessage {
                     message =
                         message.allowed_mentions(Am::new().all_users(true).roles(role_ids.clone()));
                 }
-                SerenityMessageMentionType::Reply(message_id) => {
-                    message = message.reference_message(message_id.clone());
+                SerenityMessageMentionType::Reply(ref_msg) => {
+                    message = message.reference_message(&**ref_msg);
                     message = message.allowed_mentions(Am::new().replied_user(true));
                 }
             }

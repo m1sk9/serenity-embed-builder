@@ -153,7 +153,7 @@ mod tests {
                 .build(),
         ];
 
-        // serenity-embed-builder
+        // serenity-builder
         let mock_embed = SerenityEmbed::builder()
             .title(MOCK_TEXT)
             .description(MOCK_TEXT)
