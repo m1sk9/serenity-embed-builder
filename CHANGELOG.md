@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.3.1](https://github.com/m1sk9/serenity-builder/compare/serenity-builder-v0.3.0...serenity-builder-v0.3.1) (2025-11-07)
+
+
+### Bug Fixes
+
+* `SerenityMessageMentionType::Reply` should take a Serenity `Message` as an argument. ([#18](https://github.com/m1sk9/serenity-builder/issues/18)) ([92601ba](https://github.com/m1sk9/serenity-builder/commit/92601ba9d18d60ad03d9d241c0fa8932df9a801f))
+
 ## [0.3.0](https://github.com/m1sk9/serenity-builder/compare/serenity-builder-v0.2.0...serenity-builder-v0.3.0) (2025-11-03)
 
 
