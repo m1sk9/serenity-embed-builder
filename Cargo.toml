@@ -1,6 +1,6 @@
 [package]
 name = "serenity-builder"
-version = "0.3.0"
+version = "0.3.1"
 description = "A utility library to make Serenity's builder easier to use."
 edition = "2024"
 license = "Apache-2.0"
