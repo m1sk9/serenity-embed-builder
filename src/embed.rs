@@ -227,7 +227,7 @@ mod tests {
         for i in 0..30 {
             fields.push(
                 SerenityEmbedField::builder()
-                    .name(&format!("Field {}", i))
+                    .name(format!("Field {}", i))
                     .value("Some value")
                     .build(),
             );
@@ -249,7 +249,7 @@ mod tests {
         for i in 0..25 {
             fields.push(
                 SerenityEmbedField::builder()
-                    .name(&format!("Field {}", i))
+                    .name(format!("Field {}", i))
                     .value("Some value")
                     .build(),
             );
