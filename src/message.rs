@@ -134,4 +134,26 @@ mod tests {
         let converted = mock_message.convert();
         assert!(converted.is_ok());
     }
+
+    #[test]
+    fn test_too_long_content() {
+        let content = "a".repeat(2001); // exceeds 2000 characters
+        let mock_message = SerenityMessage::builder().content(&content).build();
+
+        let converted = mock_message.convert();
+        assert!(converted.is_err());
+        assert!(matches!(
+            converted,
+            Err(SerenityMessageConvertError::TooLongContent)
+        ));
+    }
+
+    #[test]
+    fn test_valid_content_length() {
+        let content = "a".repeat(2000); // exactly 2000 characters
+        let mock_message = SerenityMessage::builder().content(&content).build();
+
+        let converted = mock_message.convert();
+        assert!(converted.is_ok());
+    }
 }

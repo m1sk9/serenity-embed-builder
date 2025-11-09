@@ -194,4 +194,70 @@ mod tests {
         assert!(converted.is_ok());
         assert_eq!(converted.unwrap(), serenity_embed);
     }
+
+    #[test]
+    fn test_embed_conversion_too_long_description() {
+        let long_description = "a".repeat(5000); // 5000 characters, exceeding the limit of 4096
+        let mock_embed = SerenityEmbed::builder()
+            .description(&long_description)
+            .build();
+
+        let converted = mock_embed.convert();
+        assert!(converted.is_err());
+        assert!(matches!(
+            converted,
+            Err(SerenityEmbedConvertError::TooLongDescription)
+        ));
+    }
+
+    #[test]
+    fn test_embed_conversion_valid_description_length() {
+        let valid_description = "a".repeat(4096); // exactly 4096 characters
+        let mock_embed = SerenityEmbed::builder()
+            .description(&valid_description)
+            .build();
+
+        let converted = mock_embed.convert();
+        assert!(converted.is_ok());
+    }
+
+    #[test]
+    fn test_embed_conversion_too_many_fields() {
+        let mut fields = Vec::new();
+        for i in 0..30 {
+            fields.push(
+                SerenityEmbedField::builder()
+                    .name(format!("Field {}", i))
+                    .value("Some value")
+                    .build(),
+            );
+        }
+
+        let mock_embed = SerenityEmbed::builder().fields(fields).build();
+        let converted = mock_embed.convert();
+
+        assert!(converted.is_err());
+        assert!(matches!(
+            converted,
+            Err(SerenityEmbedConvertError::TooManyFields)
+        ));
+    }
+
+    #[test]
+    fn test_embed_conversion_valid_number_of_fields() {
+        let mut fields = Vec::new();
+        for i in 0..25 {
+            fields.push(
+                SerenityEmbedField::builder()
+                    .name(format!("Field {}", i))
+                    .value("Some value")
+                    .build(),
+            );
+        }
+
+        let mock_embed = SerenityEmbed::builder().fields(fields).build();
+        let converted = mock_embed.convert();
+
+        assert!(converted.is_ok());
+    }
 }
